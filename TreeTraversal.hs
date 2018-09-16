@@ -16,7 +16,7 @@ dfTraversal (Node root left right)   = root : (dfTraversal left) ++ (dfTraversal
 bfTraversal tree = tbf [tree]
     where
         tbf []                              = []
-        tbf xs                              = NodeValue xs ++ (tbf $ concatmap LeftRightNodes xs)
+        tbf xs                              = map NodeValue xs ++ (tbf $ concatmap LeftRightNodes xs)
         NodeValue (a _ _ ) = a
         LeftRightNodes (Node _ Empty Empty) = []
         LeftRightNodes (Node _ Empty b)     = [b]
