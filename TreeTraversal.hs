@@ -26,3 +26,8 @@ bfTraversal tree = tbf [tree]
 
 
 
+-- In order tree traversal
+
+inOrderTraversal :: Tree a -> [a]
+inOrderTraversal Empty                               = []
+inOrderTraversal Node a l r                          = (ino l) ++ [a] ++ (ino r)
