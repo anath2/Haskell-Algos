@@ -17,7 +17,7 @@ bfTraversal tree = tbf [tree]
     where
         tbf []                              = []
         tbf xs                              = map NodeValue xs ++ (tbf $ concatmap LeftRightNodes xs)
-        NodeValue (a _ _ ) = a
+        NodeValue (v _ _ )                  = v
         LeftRightNodes (Node _ Empty Empty) = []
         LeftRightNodes (Node _ Empty b)     = [b]
         LeftRightNodes (Node _ a Empty)     = [a]
@@ -31,3 +31,11 @@ bfTraversal tree = tbf [tree]
 inOrderTraversal :: Tree a -> [a]
 inOrderTraversal Empty                               = []
 inOrderTraversal Node a l r                          = (ino l) ++ [a] ++ (ino r)
+
+
+-- Pre order tree traversal
+
+
+preOrderTraversal :: Tree a -> [a]
+preOrderTraversal Empty                              = []
+preOrderTraversal Node a l r                         = [a] ++ (preOrderTraversal l) ++ (preOrderTraversal r)
